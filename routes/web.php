@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,6 @@ Route::get('/login/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
  
-Route::get('/callback/facebook', function () {
-    return $user = Socialite::driver('facebook')->user();
+Route::get('/callback/facebook', function (Request $request) {
+    return $request->cookie('XSRF-TOKEN');
 });
