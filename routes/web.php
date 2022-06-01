@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,5 @@ Route::get('/login/facebook', function () {
 });
  
 Route::get('/callback/facebook', function (Request $request) {
-    return $request->withCookies('XSRF-TOKEN')->get('/');
+    return Cookie::get('XSRF-TOKEN');
 });
