@@ -27,4 +27,6 @@ Route::get('/login/facebook', function () {
 Route::get('/callback/facebook', function (Request $request) {
     return Socialite::driver('facebook')->user();
     /// test
+    ///123
+    ///456
 });
