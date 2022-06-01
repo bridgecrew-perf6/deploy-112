@@ -23,7 +23,5 @@ Route::get('/login/facebook', function () {
 });
  
 Route::get('/callback/facebook', function () {
-    $user = Socialite::driver('facebook')->user();
- 
-    // $user->token
+    // $user = Socialite::driver('facebook')->user();
 });
