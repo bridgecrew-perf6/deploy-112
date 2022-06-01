@@ -16,7 +16,7 @@ class SocialLoginController extends Controller
             return redirect('/');
         }
 
-        $socialUser = Socialite::driver('facebook')->stateless()->user();
+        $socialUser = Socialite::with('facebook')->stateless()->user();
 
         $user = User::where('facebook_id', $socialUser->getID())->first();
 
