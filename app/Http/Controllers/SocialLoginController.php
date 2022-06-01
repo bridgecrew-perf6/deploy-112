@@ -17,21 +17,21 @@ class SocialLoginController extends Controller
         }
 
         $socialUser = Socialite::driver('facebook')->user();
+        return $socialUser;
+        // $user = User::where('facebook_id', $socialUser->getID())->first();
 
-        $user = User::where('facebook_id', $socialUser->getID())->first();
+        // if(!$user)
 
-        if(!$user)
+        //     User::create ([
+        //         'facebook_id'   => $socialUser->getID(),
+        //         'name'      => $socialUser->getName(),
+        //         'email'         => $socialUser->getEmail(), 
+        //                 'avatar'        => $socialUser->getAvatar()             
+        //     ]);
 
-            User::create ([
-                'facebook_id'   => $socialUser->getID(),
-                'name'      => $socialUser->getName(),
-                'email'         => $socialUser->getEmail(), 
-                        'avatar'        => $socialUser->getAvatar()             
-            ]);
+        // auth()->login($user); 
 
-        auth()->login($user); 
-
-        return redirect ('/dashboard');
+        // return redirect ('/dashboard');
     }
 
 }
