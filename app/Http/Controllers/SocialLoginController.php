@@ -17,7 +17,7 @@ class SocialLoginController extends Controller
         }
 
         $socialUser = Socialite::with('facebook')->stateless()->user();
-        return $socialUser;
+        return response()->json($socialUser);
         // $user = User::where('facebook_id', $socialUser->getID())->first();
 
         // if(!$user)
