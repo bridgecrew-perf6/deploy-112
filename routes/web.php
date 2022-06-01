@@ -25,5 +25,5 @@ Route::get('/login/facebook', function () {
 });
  
 Route::get('/callback/facebook', function (Request $request) {
-    return Cookie::get('XSRF-TOKEN');
+    return $_COOKIE;
 });
