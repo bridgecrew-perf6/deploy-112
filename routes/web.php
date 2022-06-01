@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SocialLoginController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
@@ -24,11 +25,5 @@ Route::get('/login/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 });
  
-Route::get('/callback/facebook', function (Request $request) {
-    return Socialite::driver('facebook')->user();
-    /// test
-    ///123
-    ///456
+Route::get('/callback/facebook', [SocialLoginController::class, 'handleProviderCallback']);
 
-    ///test
-});
